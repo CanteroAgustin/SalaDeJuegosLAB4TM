@@ -14,6 +14,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from "./services/auth.service";
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PresentationComponent } from './components/presentation/presentation.co
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
