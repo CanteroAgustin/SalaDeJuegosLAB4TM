@@ -1,7 +1,7 @@
 <mat-card class="login-card">
     <div>
         <img mat-card-avatar src="../../../favicon.ico" class="login-header-image" />
-        <p class="welcome-text">INGRESAR A LA SALA DE JUEGOS</p>
+        <p class="welcome-text">INGRESAR A LA SALA</p>
     </div>
     <mat-card-content>
         <mat-form-field appearance="outline">
@@ -13,19 +13,21 @@
             <input matInput type="password" placeholder="Password" #userPassword required>
         </mat-form-field>
         <button class="login-button" mat-raised-button color="primary"
-            (click)="authService.SignIn(userName.value, userPassword.value)">INGRESAR</button>
+            (click)="authService.SignIn(userName.value, userPassword.value)">Ingresar</button>
 
         <h3 style="text-align: center;">O</h3>
-        <button class="login-with-google-button" mat-raised-button color="warn" (click)="authService.GoogleAuth()">Log
-            in with Google</button>
-
+        <button class="google-signin-button" mat-button (click)="authService.GoogleAuth()">
+            <mat-icon start svgIcon="logo"></mat-icon>
+            <span>Acceder Con Google</span>
+        </button>
     </mat-card-content>
     <mat-card-actions>
         <div class="forgotPassword">
-            <span routerLink="/forgot-password">Forgot Password?</span>
+            <a routerLink="/forgot-password">¿Perdiste tu contraseña?</a>
         </div>
         <div class="redirectToLogin">
-            <span>Not registered yet?<span class="redirect" routerLink="/sign-up"> Register</span></span>
+            <span>¿Aun no tenes cuenta?<a class="redirect" routerLink="/sign-up"> Registrate</a></span>
         </div>
     </mat-card-actions>
+    
 </mat-card>

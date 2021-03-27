@@ -1,0 +1,69 @@
+.imagenDeQuienSoy{
+    width: 100%;
+   
+    }
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+    
+}
+p {font-size: 16px;}
+.margin {margin-bottom: 45px;}
+.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+.bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+.bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.mat-toolbar{
+    background-color: rgb(46, 45, 45);
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.mat-card-image{
+    max-width: 500px;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mat-card{
+    margin: 20px 100px;
+    height: 500px;
+    
+}
+
+.left{
+    float: left;
+}

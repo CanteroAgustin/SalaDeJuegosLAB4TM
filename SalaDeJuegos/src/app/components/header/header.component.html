@@ -1,0 +1,7 @@
+<mat-toolbar>
+    <span>Sala de Juegos</span>
+    <span class="example-spacer"></span>
+    <a *ngIf='showPresentation' routerLink="presentation">¿Qui&eacute;n soy?</a>
+    <span *ngIf='showPipe' class="pipe">|</span>
+    <a *ngIf='showLogin' routerLink="sign-in">Ingresar</a>
+</mat-toolbar>

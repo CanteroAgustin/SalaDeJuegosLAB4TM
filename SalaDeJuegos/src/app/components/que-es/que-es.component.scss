@@ -1,0 +1,16 @@
+.mat-card-image{
+    max-width:  200px;
+    max-height: 180px;
+    margin: 2%;
+}
+
+.mat-card{
+    margin: 2% 15% 0 1%;
+    display: flow-root;
+}
+
+@media only screen and (max-width: 767px) {
+    .mat-card{
+        margin: 2%;
+    }
+}

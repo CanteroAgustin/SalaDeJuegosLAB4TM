@@ -26,6 +26,31 @@
     width: 100%;
 }
 
-.login-with-google-button{
+.google-signin-button{
     width: 100%;
+    font-family: 'roboto-medium';
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #4285F4;
+    color: #FFFFFF;
+    padding-left: 0;
+    mat-icon{
+        margin: 1px;
+        height: 36px;
+        width: 40px;
+        float: left;
+        background-color: #FFFFFF ;
+    }
+}
+
+.forgotPassword{
+    text-align: center;
+}
+
+.redirectToLogin{
+    text-align: center;
+}
+
+.footer{
+    background-color: gainsboro;
 }
