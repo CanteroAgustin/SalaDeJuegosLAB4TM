@@ -1,5 +1,11 @@
-<mat-toolbar>
-    <mat-button-toggle (click)="navigateTo('quien-soy')" class="fill-remaining-space">¿Qui&eacute;n soy?</mat-button-toggle>
-    <mat-button-toggle (click)="navigateTo('que-es')" class="fill-remaining-space">¿De que se trata esta web?</mat-button-toggle>
-    <mat-button-toggle (click)="navigateTo('my-game-presentation')" class="fill-remaining-space">Mi Juego</mat-button-toggle>
-</mat-toolbar>
+<mat-tab-group class="presentation-tab-group">
+    <mat-tab label="¿Qui&eacute;n soy?"> 
+        <app-quien-soy></app-quien-soy>
+    </mat-tab>
+    <mat-tab label=" ¿De que se trata esta web?"> 
+        <app-que-es></app-que-es>
+    </mat-tab>
+    <mat-tab label="Mi Juego"> 
+        <app-my-game-presentation></app-my-game-presentation>
+    </mat-tab>
+</mat-tab-group>

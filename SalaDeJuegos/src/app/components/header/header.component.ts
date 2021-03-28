@@ -23,17 +23,20 @@ export class HeaderComponent implements OnInit {
           break;
         case '/presentation':
           this.showLogin = true;
-          this.showPresentation = true;
-          this.showPipe = true;
+          this.showPresentation = false;
           break;
         case '/email-verification':
           this.showLogin = true;
+          this.showPresentation = true;
+          this.showPipe = true;
           break;
         case '/sign-in':
           this.showPresentation = true;
+          this.showLogin = false;
           break;
         default:
           this.showLogin = false;
+          this.showPresentation = true;
       }
     })
   }
