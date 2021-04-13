@@ -4,22 +4,27 @@
         <p class="welcome-text">INGRESAR A LA SALA</p>
     </div>
     <mat-card-content>
-        <mat-form-field appearance="outline">
-            <mat-label>Nombre de Usuario</mat-label>
-            <input type="text" matInput placeholder="Username" #userName required>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="Password" #userPassword required>
-        </mat-form-field>
-        <button class="login-button" mat-raised-button color="primary"
-            (click)="authService.SignIn(userName.value, userPassword.value)">Ingresar</button>
+        <form [formGroup]="loginForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de Usuario</mat-label>
+                <input type="text" matInput placeholder="Username" #userName formControlName="user" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" #userPassword formControlName="password"
+                    required>
+            </mat-form-field>
+            <button class="button" mat-raised-button color="primary"
+                (click)="authService.SignIn(userName.value, userPassword.value)"
+                [disabled]="!loginForm.valid">Ingresar</button>
+            <button class="button margin-top-10" mat-raised-button color="warn" (click)="mockUser()">Mock User</button>
 
-        <h3 style="text-align: center;">O</h3>
-        <button class="google-signin-button" mat-button (click)="authService.GoogleAuth()">
-            <mat-icon start svgIcon="logo"></mat-icon>
-            <span>Acceder Con Google</span>
-        </button>
+            <h3 style="text-align: center;">O</h3>
+            <button class="google-signin-button" mat-button (click)="authService.GoogleAuth()">
+                <mat-icon start svgIcon="logo"></mat-icon>
+                <span>Acceder Con Google</span>
+            </button>
+        </form>
     </mat-card-content>
     <mat-card-actions>
         <div class="forgotPassword">
@@ -29,5 +34,5 @@
             <span>¿Aun no tenes cuenta?<a class="redirect" routerLink="/sign-up"> Registrate</a></span>
         </div>
     </mat-card-actions>
-    
+
 </mat-card>

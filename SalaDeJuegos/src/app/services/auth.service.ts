@@ -39,10 +39,10 @@ export class AuthService {
   SignIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        this.SetUserData(result.user || this.userState);
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         });
-        this.SetUserData(result.user || this.userState);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -80,8 +80,8 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    const user = JSON.parse(localStorage.getItem('user') || "{}");
+    return (user && user.emailVerified) ? true : false;
   }
 
   GoogleAuth() {
@@ -91,10 +91,10 @@ export class AuthService {
   AuthLogin(provider: auth.AuthProvider) {
     return this.afAuth.signInWithPopup(provider)
       .then((result) => {
+        this.SetUserData(result.user || this.userState());
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         })
-        this.SetUserData(result.user || this.userState());
       }).catch((error) => {
         window.alert(error)
       })
@@ -109,6 +109,7 @@ export class AuthService {
       photoURL: user.photoURL || '',
       emailVerified: user.emailVerified
     }
+    localStorage.setItem('user', JSON.stringify(userState));
     return userRef.set(userState, {
       merge: true
     })

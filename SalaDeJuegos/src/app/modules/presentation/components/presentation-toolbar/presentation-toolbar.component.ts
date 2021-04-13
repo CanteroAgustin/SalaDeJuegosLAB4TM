@@ -13,7 +13,21 @@ export class PresentationToolbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateTo(element: string) {
-    this.router.navigate([element], { relativeTo: this.route })
-  }
+  changeTab(e: any) {
+    switch (e.index) {
+    case 0:
+        this.router.navigateByUrl('/presentation/quien-soy');
+        break;
+    case 1:
+        this.router.navigateByUrl('/presentation/que-es');
+        break;
+    case 2:
+        this.router.navigateByUrl('/presentation/my-game');
+        break;
+
+    default:
+        console.log('e is: ', e, 'e.index is: ', e.index);
+        break;
+    }
+}
 }
