@@ -1,2 +1,8 @@
-<input type="text" [(ngModel)]="message.message">
-<button (click)="SendMessage()">Enviar</button>
+<mat-tab-group>
+    <mat-tab label="Enviados">
+        <app-sent></app-sent>
+    </mat-tab>
+    <mat-tab label="Recibidos">
+        <app-received></app-received>
+    </mat-tab>
+</mat-tab-group>

@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
-import { MessageListComponent } from './components/message-list/message-list.component';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { SentComponent } from './components/sent/sent.component';
+import { ReceivedComponent } from './components/received/received.component';
+import { SendComponent } from './components/send/send.component';
 
 
 @NgModule({
-  declarations: [ChatComponent, MessageListComponent],
+  declarations: [
+    ChatComponent,
+    SentComponent,
+    ReceivedComponent,
+    SendComponent
+  ],
   imports: [
     CommonModule,
     ChatRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
+    AngularMaterialModule
   ]
 })
 export class ChatModule { }

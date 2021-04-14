@@ -1,0 +1,13 @@
+<form [formGroup]="formMessage">
+    <mat-form-field appearance="legacy">
+        <mat-label>Mensaje:</mat-label>
+        <input matInput formControlName="message">
+    </mat-form-field>
+    <mat-form-field class="emailWidth" appearance="legacy">
+        <mat-label>Para(Email):</mat-label>
+        <input matInput formControlName="to">
+    </mat-form-field>
+    <button [disabled]="!this.formMessage.valid" class="button-margin-left" mat-raised-button color="primary"
+        (click)="sendMessage()">Enviar</button>
+    <button class="button-margin-left" mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+</form>

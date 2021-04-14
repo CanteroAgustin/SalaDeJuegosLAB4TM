@@ -14,19 +14,19 @@ export class FirestoreMessageService {
     this.collection = this.firestore.collection(this.collectionPath);
   }
 
-  Crear(msg: Message): any {
+  create(msg: Message): any {
     return this.collection.add({ ...msg });
   }
 
-  ObtenerTodos(): AngularFirestoreCollection<Message> {
+  getAll(): AngularFirestoreCollection<Message> {
     return this.collection;
   }
 
-  BorrarMensaje(id: any): Promise<void> {
+  delete(id: any): Promise<void> {
     return this.collection.doc(id).delete();
   }
 
-  ModificarMensaje(id: any, datos: any): Promise<void> {
+  update(id: any, datos: any): Promise<void> {
     return this.collection.doc(id).update(datos);
   }
 

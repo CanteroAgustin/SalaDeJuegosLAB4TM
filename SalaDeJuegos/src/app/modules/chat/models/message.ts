@@ -2,5 +2,6 @@ export class Message {
     id: string = '';
     user: string = '';
     message: string = '';
-    state: boolean = false;
+    date: Number = 0;
+    to: string = '';
 }
