@@ -1,32 +1,28 @@
-<div class="displayTable">
-    <div class="displayTableCell">
+<mat-card class="login-card">
+    <h2 class="welcome-text">REGISTRO</h2>
+    <mat-card-content>
+        <form [formGroup]="registerForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre de Usuario</mat-label>
+                <input type="email" matInput placeholder="Email" #userEmail formControlName="user" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" #userPwd formControlName="password" required>
+            </mat-form-field>
 
-        <div class="authBlock">
-            <h3>Register User</h3>
-
-            <div class="formGroup">
-                <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
-            </div>
-
-            <div class="formGroup">
-                <input type="password" class="form-control" placeholder="Password" #userPwd required>
-            </div>
-
-            <div class="formGroup">
-                <input type="button" class="btn btn-block btn-primary" value="Sign Up"
-                    (click)="authService.SignUp(userEmail.value, userPwd.value)">
-            </div>
-
-            <div class="formGroup">
-                <button type="button" class="btn btn-block btn-danger" (click)="authService.GoogleAuth()">
-                    Continue with Google
-                </button>
-            </div>
+            <button class="button" color="primary" mat-raised-button
+                (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrarme</button>
+            <h3 class="margin-top-10" style="text-align: center;">O</h3>
+            <button class="google-signin-button margin-top-10" mat-button (click)="authService.GoogleAuth()">
+                <mat-icon start svgIcon="logo"></mat-icon>
+                <span>Continuar con Google</span>
+            </button>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="forgotPassword">
+            <a routerLink="/sign-in">¿Ya tenes una cuenta?</a>
         </div>
-
-        <div class="redirectToLogin">
-            <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
-        </div>
-    </div>
-
-</div>
+    </mat-card-actions>
+</mat-card>

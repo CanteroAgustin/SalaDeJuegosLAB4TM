@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    gap: 16px;
+
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 150px);
+    }
+}
+
+.title {
+    width: 100%;
+    background: lavender;
+    color: #110F26;
+    padding: 20px;
+    text-align: center;
+}
+
+.description-text {
+    text-align: center;
+    margin: 1%;
+}
+
+.margin-bottom{
+    margin-bottom: 20px;
+}

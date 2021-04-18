@@ -2,16 +2,15 @@
     <div class="displayTableCell">
 
         <div class="authBlock">
-            <h3>Thank You for Signing up</h3>
+            <h3>Gracias por registrarte</h3>
 
-            <div class="formGroup" *ngIf="authService.userState as user">
-                <p class="text-center">Confirmation mail has been sent to <strong>{{user.email}}</strong>.</p>
+            <div class="marginTop2" *ngIf="authService.userState as user">
+                <p class="text-center">Te enviamos un email de verificacion a <strong>{{user.email}}</strong>.</p>
             </div>
 
-            <div class="formGroup">
-                <button type="button" class="btn btn-block btn-success" (click)="authService.SendVerificationMail()">
-                    Resend Verification Email
-                </button>
+            <div>
+                <button class="marginTop2" color="primary" mat-raised-button
+                    (click)="authService.SendVerificationMail()">Reenviar</button>
             </div>
         </div>
 

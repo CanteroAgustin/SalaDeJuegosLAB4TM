@@ -9,7 +9,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PresentationComponent } from './modules/presentation/presentation.component';
-import { TatetiComponent } from './tateti/tateti.component';
+import { TatetiComponent } from './components/tateti/tateti.component';
+import { MemoryComponent } from './components/memory/memory.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
     path: 'juegos',
     children: [
       { path: 'tateti', component: TatetiComponent },
-      { path: 'piedraPapelTijera', component: PiedraPapelTijeraComponent }
+      { path: 'piedraPapelTijera', component: PiedraPapelTijeraComponent },
+      { path: 'memory', component: MemoryComponent },
     ]
   },
   { path: '**', component: PageNotFoundComponent }

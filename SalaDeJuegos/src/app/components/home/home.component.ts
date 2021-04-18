@@ -16,6 +16,11 @@ export class HomeComponent implements OnInit {
   contentTextPpt = 'El clasico Piedra papel o tijera';
   imgPathPpt = '../assets/imagenes/ppt.png';
   redirectPathPpt = '/juegos/piedraPapelTijera';
+  titleMemory = 'Juego de la memoria';
+  contentTextMemory = 'El clasico juego de la memoria en el que haces coincidir las imagenes';
+  imgPathMemory = '../assets/imagenes/memory.jpg';
+  redirectPathMemory = '/juegos/memory';
+
   panelOpenState = false;
 
   constructor(public authService: AuthService) { }

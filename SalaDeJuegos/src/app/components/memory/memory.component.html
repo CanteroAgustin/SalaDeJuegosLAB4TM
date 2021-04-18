@@ -1,0 +1,12 @@
+<div class="title">
+    <h1>¡¡Juego de la memoria!!</h1>
+</div>
+<div class="p-16 margin-bottom">
+    <h4 class="description-text">Toca una carta para darla vuelta. Solo puedes dar vuelta 2 cartas a la vez. Si las
+        cartas coinciden estas desapareceran. Ganas cuando no queden cartas!</h4>
+    <div class="grid p-16">
+        <app-memory-card *ngFor="let c of cards; let idx=index" [data]="c" (cardClicked)="cardClicked(idx)">
+        </app-memory-card>
+    </div>
+</div>
+<app-chat [collection]="collection"></app-chat>

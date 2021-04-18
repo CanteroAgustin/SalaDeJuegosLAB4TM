@@ -19,11 +19,13 @@ import { AngularMaterialModule } from "./modules/angular-material/angular-materi
 import { AuthService } from "./services/auth.service";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { GameCardComponent } from './components/game-card/game-card.component';
-import { TatetiComponent } from './tateti/tateti.component';
+import { TatetiComponent } from './components/tateti/tateti.component';
 import { ChatModule } from './modules/chat/chat.module';
 import { PiedraPapelTijeraComponent } from './components/piedra-papel-tijera/piedra-papel-tijera.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
+import { MemoryComponent } from './components/memory/memory.component';
+import { MemoryCardComponent } from './components/memory/memory-card/memory-card.component';
+import { RestartDialogComponent } from './components/memory/restart-dialog/restart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     GameCardComponent,
     TatetiComponent,
     PiedraPapelTijeraComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MemoryComponent,
+    MemoryCardComponent,
+    RestartDialogComponent
   ],
   imports: [
     BrowserModule,
