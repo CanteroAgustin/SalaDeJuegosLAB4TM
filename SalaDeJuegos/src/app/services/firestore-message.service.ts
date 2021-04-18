@@ -7,26 +7,29 @@ import { Message } from '../modules/chat/models/message';
 })
 export class FirestoreMessageService {
 
-  collectionPath = '/messages';
-  collection: AngularFirestoreCollection<Message>;
+  collection: AngularFirestoreCollection<Message> | undefined;
 
-  constructor(private firestore: AngularFirestore) { 
-    this.collection = this.firestore.collection(this.collectionPath);
+  constructor(private firestore: AngularFirestore) {
+
   }
 
-  create(msg: Message): any {
+  create(msg: Message, collectionPath: string): any {
+    this.collection = this.firestore.collection(collectionPath);
     return this.collection.add({ ...msg });
   }
 
-  getAll(): AngularFirestoreCollection<Message> {
+  getAll(collectionPath: string): AngularFirestoreCollection<Message> {
+    this.collection = this.firestore.collection(collectionPath);
     return this.collection;
   }
 
-  delete(id: any): Promise<void> {
+  delete(id: any, collectionPath: string): Promise<void> {
+    this.collection = this.firestore.collection(collectionPath);
     return this.collection.doc(id).delete();
   }
 
-  update(id: any, datos: any): Promise<void> {
+  update(id: any, datos: any, collectionPath: string): Promise<void> {
+    this.collection = this.firestore.collection(collectionPath);
     return this.collection.doc(id).update(datos);
   }
 

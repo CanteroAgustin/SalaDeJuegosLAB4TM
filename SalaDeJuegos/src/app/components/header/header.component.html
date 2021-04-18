@@ -1,11 +1,17 @@
 <mat-toolbar>
+    <button mat-icon-button (click)="toggleSideBar()">
+        <mat-icon>menu</mat-icon>
+    </button>
     <span>Sala de Juegos</span>
     <span class="example-spacer"></span>
-    <a *ngIf='!showLogin' routerLink="chat">Chat</a>
-    <span class="spacer"></span>
-    <a *ngIf='showHome' routerLink="home">DashBoard</a>
-    <span class="spacer"></span>
     <a *ngIf='showPresentation' routerLink="presentation">¿Qui&eacute;n soy?</a>
     <span class="spacer"></span>
     <a *ngIf='showLogin' routerLink="sign-in">Ingresar</a>
+    <button *ngIf="isLoggedIn && user" mat-icon-button [matMenuTriggerFor]="account">
+        <img class="avatar"
+            src="{{(user.photoURL) ? user.photoURL : 'assets/imagenes/genericAvatar.png'}}">
+    </button>
+    <mat-menu #account="matMenu">
+        <button mat-menu-item (click)="authService.SignOut()">Cerrar sesion</button>
+    </mat-menu>
 </mat-toolbar>

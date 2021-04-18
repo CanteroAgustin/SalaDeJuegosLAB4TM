@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { User } from 'src/app/services/auth.service';
@@ -13,27 +13,25 @@ import { Message } from '../../models/message';
 export class SentComponent implements OnInit {
 
   messages: Message[] = [];
-  user: User | undefined;
-  displayedColumns: string[] = ['date', 'from', 'message'];
+  displayedColumns: string[] = ['date', 'user','message'];
   canSend = false;
+  @Input() collection = '';
 
-  constructor(firestore: FirestoreMessageService) {
-    firestore.getAll().valueChanges().subscribe(response => {
-      this.messages = response.filter(data => {
-        return data.user === this.user?.email;
-      })
-    });
+  constructor(private firestore: FirestoreMessageService) {
+    
   }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user') || "{}");
+    this.firestore.getAll(this.collection).valueChanges().subscribe(response => {
+      this.messages = response;
+    });
   }
 
-  handleMsgSent(){
+  handleMsgSent() {
     this.canSend = false;
   }
 
-  showSend(){
+  showSend() {
     this.canSend = true;
   }
 

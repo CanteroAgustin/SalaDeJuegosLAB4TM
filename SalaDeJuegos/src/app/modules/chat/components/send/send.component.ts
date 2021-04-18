@@ -12,18 +12,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class SendComponent implements OnInit {
 
   message: Message = new Message;
-  @Input() destinatary: string = '';
-  @Output() msgSent = new EventEmitter<boolean>();
+  @Input() collection = '';
 
   formMessage = new FormGroup({
-    message: new FormControl('', [Validators.required]),
-    to: new FormControl('', [Validators.required]),
+    message: new FormControl('', [Validators.required])
   });
 
   constructor(private firestoreMsgService: FirestoreMessageService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.formMessage.patchValue({ 'to': this.destinatary });
   }
 
   openSnackBar(message: string) {
@@ -33,28 +30,17 @@ export class SendComponent implements OnInit {
   }
 
   sendMessage() {
-    const { message, to } = this.formMessage.value;
+    const { message } = this.formMessage.value;
     const user = JSON.parse(localStorage.getItem('user') || "{}");
     this.message.user = user.email;
-    this.message.to = to;
     this.message.message = message;
     this.message.date = Date.now();
-    if (this.message.user && this.message.to && this.message.message) {
-      this.firestoreMsgService.create(this.message).then(() => {
-        console.info('The message was sent successfuly!!!');
-        this.msgSent.emit(true);
-        this.openSnackBar("Mensaje enviado con exito!!!");
-      }).catch((error: any) => {
-        console.error(error);
-        this.msgSent.emit(false);
-      });
-    } else {
-      this.msgSent.emit(false);
-    }
-
-  }
-
-  cancel() {
-    this.msgSent.emit(false);
+    this.firestoreMsgService.create(this.message, this.collection).then(() => {
+      console.info('The message was sent successfuly!!!');
+      this.openSnackBar("Mensaje enviado con exito!!!");
+      this.formMessage.patchValue({ message: '' });
+    }).catch((error: any) => {
+      console.error(error);
+    });
   }
 }

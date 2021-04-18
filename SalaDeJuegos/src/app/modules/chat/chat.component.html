@@ -1,8 +1,11 @@
-<mat-tab-group>
-    <mat-tab label="Enviados">
-        <app-sent></app-sent>
-    </mat-tab>
-    <mat-tab label="Recibidos">
-        <app-received></app-received>
-    </mat-tab>
-</mat-tab-group>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                CHAT
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-send [collection]="collection"></app-send>
+        <app-sent [collection]="collection"></app-sent>
+    </mat-expansion-panel>
+</mat-accordion>

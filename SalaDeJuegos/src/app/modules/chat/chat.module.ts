@@ -6,7 +6,6 @@ import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { SentComponent } from './components/sent/sent.component';
-import { ReceivedComponent } from './components/received/received.component';
 import { SendComponent } from './components/send/send.component';
 
 
@@ -14,7 +13,6 @@ import { SendComponent } from './components/send/send.component';
   declarations: [
     ChatComponent,
     SentComponent,
-    ReceivedComponent,
     SendComponent
   ],
   imports: [
@@ -22,6 +20,10 @@ import { SendComponent } from './components/send/send.component';
     ChatRoutingModule,
     ReactiveFormsModule,
     AngularMaterialModule
+  ],
+  exports:
+  [
+    ChatComponent
   ]
 })
 export class ChatModule { }

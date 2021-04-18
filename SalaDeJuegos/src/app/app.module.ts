@@ -17,6 +17,12 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
 import { AuthService } from "./services/auth.service";
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { TatetiComponent } from './tateti/tateti.component';
+import { ChatModule } from './modules/chat/chat.module';
+import { PiedraPapelTijeraComponent } from './components/piedra-papel-tijera/piedra-papel-tijera.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -27,7 +33,12 @@ import { AuthService } from "./services/auth.service";
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent,
+    GameCardComponent,
+    TatetiComponent,
+    PiedraPapelTijeraComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,8 @@ import { AuthService } from "./services/auth.service";
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChatModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,20 +1,12 @@
-<ng-template #newMsg>
-    <button mat-raised-button color="primary" (click)="showSend()">Nuevo mensaje</button>
-</ng-template>
-<div class="sendWrapper">
-    
-    <app-send *ngIf="canSend; else newMsg" (msgSent)="handleMsgSent()"></app-send>
-</div>
 <table mat-table [dataSource]="this.messages" class="mat-elevation-z8">
-
     <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef> Fecha </th>
         <td mat-cell *matCellDef="let element"> {{element.date | date:'medium'}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="from">
-        <th mat-header-cell *matHeaderCellDef> Para </th>
-        <td mat-cell *matCellDef="let element"> {{element.to}} </td>
+    <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
     </ng-container>
 
     <ng-container matColumnDef="message">

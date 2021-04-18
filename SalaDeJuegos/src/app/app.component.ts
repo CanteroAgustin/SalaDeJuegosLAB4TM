@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sala de Juegos';
+  sideBarOpen = false;
+  isLoggedIn = false;
+
+  toggleSideBarEventHandler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
+
 }

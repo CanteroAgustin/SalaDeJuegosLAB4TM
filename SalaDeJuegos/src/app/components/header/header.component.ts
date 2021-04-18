@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService, User } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +10,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() toggleSideBarEvent: EventEmitter<any> = new EventEmitter();
   showLogin: boolean = false;
   showPresentation: boolean = false;
   isLoggedIn = false;
   completeWelcomeMsg = '';
   showHome = false;
+  user: User | undefined;
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, public authService: AuthService) {
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd)
     ).subscribe(e => {
+      this.isLoggedIn = this.authService.isLoggedIn;
+      this.user = JSON.parse(localStorage.getItem('user') || "{}");
       switch ((e as NavigationStart).url) {
         case '/':
           this.showPresentation = true;
@@ -69,7 +73,7 @@ export class HeaderComponent implements OnInit {
           this.showLogin = false;
           this.showHome = false;
           break;
-        
+
         default:
           this.showLogin = false;
           this.showPresentation = true;
@@ -79,6 +83,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn;
+    this.user = JSON.parse(localStorage.getItem('user') || "{}");
   }
 
+  toggleSideBar() {
+    this.toggleSideBarEvent.emit();
+    setTimeout(() => {
+      window.dispatchEvent(
+        new Event('resize')
+      );
+    }, 300);
+  }
 }
