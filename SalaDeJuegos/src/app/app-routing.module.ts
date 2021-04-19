@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'email-verification', component: VerifyEmailComponent },
   {
-    path: 'juegos',
+    path: 'juegos', canActivate: [AuthGuard],
     children: [
       { path: 'tateti', component: TatetiComponent },
       { path: 'piedraPapelTijera', component: PiedraPapelTijeraComponent },

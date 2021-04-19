@@ -4,6 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import * as firebase from 'firebase/app';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface User {
   uid: string;
@@ -24,7 +25,8 @@ export class AuthService {
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    private _snackBar: MatSnackBar
   ) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -44,7 +46,7 @@ export class AuthService {
           this.router.navigate(['home']);
         });
       }).catch((error) => {
-        window.alert(error.message)
+        this.openSnackBar('Error: ' + error.message);
       })
   }
 
@@ -54,7 +56,7 @@ export class AuthService {
         this.SendVerificationMail();
         this.SetUserData(result.user || this.userState);
       }).catch((error) => {
-        window.alert(error.message)
+        this.openSnackBar('Error: ' + error.message);
       })
   }
 
@@ -73,9 +75,9 @@ export class AuthService {
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
+        this.openSnackBar('El correo de recuperacion fue enviado, revisa tu bandeja');
       }).catch((error) => {
-        window.alert(error)
+        this.openSnackBar('Error: ' + error.message);
       })
   }
 
@@ -96,7 +98,7 @@ export class AuthService {
           this.router.navigate(['home']);
         })
       }).catch((error) => {
-        window.alert(error)
+        this.openSnackBar('Error: ' + error.message);
       })
   }
 
@@ -120,5 +122,11 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'cerrar', {
+      duration: 5000,
+    });
   }
 }
