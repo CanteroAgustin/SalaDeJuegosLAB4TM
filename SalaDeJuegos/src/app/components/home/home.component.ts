@@ -20,6 +20,10 @@ export class HomeComponent implements OnInit {
   contentTextMemory = 'El clasico juego de la memoria en el que haces coincidir las imagenes';
   imgPathMemory = '../assets/imagenes/memory.jpg';
   redirectPathMemory = '/juegos/memory';
+  titleColourPicker = 'Colour Picker';
+  contentTextColourPicker = 'Un juego para despertar los sentidos';
+  imgPathColourPicker = '../assets/imagenes/colourPicker.png';
+  redirectPathColourPicker = '/juegos/colourPicker';
 
   panelOpenState = false;
 

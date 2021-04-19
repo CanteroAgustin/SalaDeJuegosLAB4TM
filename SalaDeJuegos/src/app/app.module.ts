@@ -26,6 +26,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { MemoryComponent } from './components/memory/memory.component';
 import { MemoryCardComponent } from './components/memory/memory-card/memory-card.component';
 import { RestartDialogComponent } from './components/memory/restart-dialog/restart-dialog.component';
+import { MatchingGameComponent } from './components/matching-game/matching-game.component';
+import { ColourPickerComponent } from './components/colour-picker/colour-picker.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { RestartDialogComponent } from './components/memory/restart-dialog/resta
     PageNotFoundComponent,
     MemoryComponent,
     MemoryCardComponent,
-    RestartDialogComponent
+    RestartDialogComponent,
+    MatchingGameComponent,
+    ColourPickerComponent
   ],
   imports: [
     BrowserModule,

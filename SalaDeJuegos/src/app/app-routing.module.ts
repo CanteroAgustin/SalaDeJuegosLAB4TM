@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PresentationComponent } from './modules/presentation/presentation.component';
 import { TatetiComponent } from './components/tateti/tateti.component';
 import { MemoryComponent } from './components/memory/memory.component';
+import { ColourPickerComponent } from './components/colour-picker/colour-picker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'tateti', component: TatetiComponent },
       { path: 'piedraPapelTijera', component: PiedraPapelTijeraComponent },
       { path: 'memory', component: MemoryComponent },
+      { path: 'colourPicker', component: ColourPickerComponent },
     ]
   },
   { path: '**', component: PageNotFoundComponent }
