@@ -1,3 +1,27 @@
 <div class="title">
     <h1>¡¡Colour Picker!!</h1>
 </div>
+
+<ng-template #playButton>
+    <div class="playButtonContainer">
+        <button class="playButton" mat-raised-button (click)="play()" color="primary">Empezar</button>
+    </div>
+</ng-template>
+
+<div *ngIf="playing; else playButton">
+    <div class="principalContainer">
+        <div class="principalColour" [style.background]='principalColour'>
+            <h1>{{principalColourText}}</h1>
+            <p>Cantidad de intentos: {{intentos}}</p>
+        </div>
+    </div>
+
+    <div class="colorsContainer">
+        <button *ngFor='let colour of  colors' class="color" [style.background]='colour' (click)="onSelectColour(colour)" [disabled]='hasWon'></button>
+    </div>
+</div>
+
+<div *ngIf='hasWon' class="playButtonContainer">
+    <button class="playButton" mat-raised-button (click)="reset()" color="primary">Jugar de nuevo</button>
+</div>
+<app-chat [collection]="collection"></app-chat>

@@ -1,7 +1,45 @@
 .title {
     width: 100%;
     background: lavender;
-    color: #110F26;
+    color: #110f26;
     padding: 20px;
     text-align: center;
+}
+
+.color {
+    width: 100px;
+    height: 200px;
+    display: inline-block;
+    margin: 2px;
+    border: 1px solid gainsboro;
+}
+
+.colorsContainer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.principalColour {
+    width: 620px;
+    height: 70px;
+    display: inline-block;
+    border: 1px solid gainsboro;
+}
+
+.principalContainer {
+    width: 100%;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.playButtonContainer {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.playButton {
+    width: 300px;
+    height: 75px;
+    margin-bottom: 100px;
 }
