@@ -8,20 +8,28 @@
     </div>
 </ng-template>
 
+<div class="timerContainer" *ngIf="playing">
+    <h1 class="timer">{{segundos}} : {{timer}}</h1>
+</div>
+<div class="textIntentos" *ngIf="hasWon">
+    <h3>Lo lograste en: {{intentos}} intentos!!!</h3>
+</div>
 <div *ngIf="playing; else playButton">
     <div class="principalContainer">
         <div class="principalColour" [style.background]='principalColour'>
             <h1>{{principalColourText}}</h1>
-            <p>Cantidad de intentos: {{intentos}}</p>
         </div>
     </div>
 
     <div class="colorsContainer">
-        <button *ngFor='let colour of  colors' class="color" [style.background]='colour' (click)="onSelectColour(colour)" [disabled]='hasWon'></button>
+        <button *ngFor='let colour of  colors' class="color" [style.background]='colour'
+            (click)="onSelectColour(colour)" [disabled]='hasWon'></button>
     </div>
 </div>
 
 <div *ngIf='hasWon' class="playButtonContainer">
     <button class="playButton" mat-raised-button (click)="reset()" color="primary">Jugar de nuevo</button>
 </div>
-<app-chat [collection]="collection"></app-chat>
+<div class="chat">
+    <app-chat [collection]="collection"></app-chat>
+</div>

@@ -1,4 +1,7 @@
 <mat-nav-list>
     <h2 matSubheader>Men&uacute;</h2>
+    <a *ngIf="!isLoggedIn" mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{exact: true}" routerLink="/sign-in">Ingresar</a>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{exact: true}" routerLink="/presentation">¿Qui&eacute;n soy?</a>
     <a *ngIf="isLoggedIn" mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{exact: true}" routerLink="/">Tablero</a>
+    <a *ngIf="isLoggedIn" mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{exact: true}" routerLink="/results">Resultados</a>
 </mat-nav-list>

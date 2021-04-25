@@ -12,22 +12,24 @@ import { AppComponent } from './app.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { ColourPickerComponent } from './components/juegos/colour-picker/colour-picker.component';
+import { GameCardComponent } from './components/juegos/game-card/game-card.component';
+import { MatchingGameComponent } from './components/juegos/matching-game/matching-game.component';
+import { MemoryCardComponent } from './components/juegos/memory/memory-card/memory-card.component';
+import { MemoryComponent } from './components/juegos/memory/memory.component';
+import { RestartDialogComponent } from './components/juegos/memory/restart-dialog/restart-dialog.component';
+import { PiedraPapelTijeraComponent } from './components/juegos/piedra-papel-tijera/piedra-papel-tijera.component';
+import { TatetiComponent } from './components/juegos/tateti/tateti.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AngularMaterialModule } from "./modules/angular-material/angular-material.module";
-import { AuthService } from "./services/auth.service";
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { GameCardComponent } from './components/game-card/game-card.component';
-import { TatetiComponent } from './components/tateti/tateti.component';
 import { ChatModule } from './modules/chat/chat.module';
-import { PiedraPapelTijeraComponent } from './components/piedra-papel-tijera/piedra-papel-tijera.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { MemoryComponent } from './components/memory/memory.component';
-import { MemoryCardComponent } from './components/memory/memory-card/memory-card.component';
-import { RestartDialogComponent } from './components/memory/restart-dialog/restart-dialog.component';
-import { MatchingGameComponent } from './components/matching-game/matching-game.component';
-import { ColourPickerComponent } from './components/colour-picker/colour-picker.component';
+import { AuthService } from "./services/auth.service";
+import { ResultsComponent } from './components/results/results.component';
+import { ColourPickerResultsComponent } from './components/results/colour-picker-results/colour-picker-results.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { ColourPickerComponent } from './components/colour-picker/colour-picker.
     MemoryCardComponent,
     RestartDialogComponent,
     MatchingGameComponent,
-    ColourPickerComponent
+    ColourPickerComponent,
+    ResultsComponent,
+    ColourPickerResultsComponent
   ],
   imports: [
     BrowserModule,
