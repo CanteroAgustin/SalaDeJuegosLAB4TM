@@ -44,17 +44,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
-
-.mat-drawer-container{
-  height: 100% !important;
-}
-
 * {
 	margin:0;
 	padding: 0;
 	box-sizing: border-box;
 }
 body{
-	background-color:#110F26;
+	background-color: whitesmoke;
 	color: white;
+}
+
+.mat-chip-list-wrapper{
+  margin: 0 !important;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { ResultTateti } from '../components/juegos/tateti/resultTateti';
+import { PptResult } from '../components/juegos/piedra-papel-tijera/pptResult';
 import { Message } from '../modules/chat/models/message';
 
 @Injectable({
@@ -44,4 +44,23 @@ export class FirestoreMessageService {
     return this.collection;
   }
 
+  savePptResult(datos: PptResult, collectionPath: string) {
+    const doc = datos.email ? datos.email : '';
+    this.firestore.collection(collectionPath).doc(doc).set(Object.assign({}, datos))
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
+  }
+
+  getPptResult(collectionPath: string, user: string | null | undefined) {
+    let usuario = user ? user : '';
+    return this.firestore.collection(collectionPath).doc(usuario).get();
+  }
+
+  getPptResults(collectionPath: string) {
+    return this.firestore.collection(collectionPath).get();
+  }
 }

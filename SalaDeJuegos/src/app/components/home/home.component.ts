@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'firebase';
 import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreMessageService } from 'src/app/services/firestore-message.service';
 
 @Component({
   selector: 'app-home',
@@ -24,12 +26,24 @@ export class HomeComponent implements OnInit {
   contentTextColourPicker = 'Un juego para despertar los sentidos';
   imgPathColourPicker = '../assets/imagenes/colourPicker.png';
   redirectPathColourPicker = '/juegos/colourPicker';
-
+  showEncuesta = true;
   panelOpenState = false;
+  user: User | undefined;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private firestoreService: FirestoreMessageService) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user') || "{}");
+    this.firestoreService.getResultGame('/encuestas').valueChanges().subscribe(response => {
+      response.forEach(element => {
+        if (element.usuario === this.user?.email) {
+          this.showEncuesta = false;
+        }
+      });
+    });
   }
 
+  handleShowButtonEncuesta() {
+    this.showEncuesta = false;
+  }
 }

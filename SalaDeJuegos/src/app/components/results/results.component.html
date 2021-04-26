@@ -10,17 +10,6 @@
     </h1>
     <img class="trofeo" src="/assets/imagenes/trofeo.png" alt="">
 </div>
-
-<mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenStateTateti = true" (closed)="panelOpenStateTateti = false"
-        [expanded]="true">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <p class="sectionTitle">Ta-Te-Ti</p>
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-    </mat-expansion-panel>
-</mat-accordion>
 <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenStatePpt = true" (closed)="panelOpenStatePpt = false" [expanded]="true">
         <mat-expansion-panel-header>
@@ -28,6 +17,7 @@
                 <p class="sectionTitle">Piedra, Papel o Tijera</p>
             </mat-panel-title>
         </mat-expansion-panel-header>
+        <app-ppt-results></app-ppt-results>
     </mat-expansion-panel>
 </mat-accordion>
 <mat-accordion>
@@ -38,6 +28,7 @@
                 <p class="sectionTitle">Juego de la Memoria</p>
             </mat-panel-title>
         </mat-expansion-panel-header>
+        <app-memory-results></app-memory-results>
     </mat-expansion-panel>
 </mat-accordion>
 <mat-accordion>

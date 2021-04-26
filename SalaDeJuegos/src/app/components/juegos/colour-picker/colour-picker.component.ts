@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'firebase';
 import { FirestoreMessageService } from 'src/app/services/firestore-message.service';
@@ -22,12 +21,12 @@ export class ColourPickerComponent implements OnInit {
   collection = "/colourPicker";
   collectionResults = "/colourPickerResults";
   user: User | undefined;
-  resultsColourPicker: ResultColourPicker[] = [];
   resultColourPicker: ResultColourPicker = new ResultColourPicker;
   timer: number = 0;
   segundos: number = 0;
+  minutos: number = 0;
 
-  constructor(private _snackBar: MatSnackBar, private firestore: AngularFirestore, private firestoreMsgService: FirestoreMessageService) { }
+  constructor(private _snackBar: MatSnackBar, private firestoreMsgService: FirestoreMessageService) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || "{}");
@@ -52,7 +51,7 @@ export class ColourPickerComponent implements OnInit {
     this.resultColourPicker.intentos = intentos;
     this.resultColourPicker.fecha = Date.now();
     this.resultColourPicker.email = this.user?.email;
-    this.resultColourPicker.tiempo = this.segundos + " : " + this.timer;
+    this.resultColourPicker.tiempo = this.minutos + " : " + this.segundos + " : " + this.timer;
     this.firestoreMsgService.saveResutGame(this.resultColourPicker, this.collectionResults).then(() => {
     }).catch((error: any) => {
       console.error(error);
@@ -66,6 +65,10 @@ export class ColourPickerComponent implements OnInit {
       if(this.timer >= 100){
         this.timer = 0;
         this.segundos++;
+      }
+      if (this.segundos >= 60) {
+        this.segundos = 0;
+        this.minutos++;
       }
       if (this.hasWon === true) {
         clearInterval(intervalId);
@@ -86,6 +89,7 @@ export class ColourPickerComponent implements OnInit {
     this.principalColourText = '';
     this.timer = 0;
     this.segundos = 0;
+    this.minutos = 0;
     this.play();
   }
 

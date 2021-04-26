@@ -1,0 +1,53 @@
+<table mat-table [dataSource]="this.results" class="mat-elevation-z8">
+    <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha | date:'medium'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element; let i = index;">
+            {{element.email}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="intentos">
+        <th mat-header-cell *matHeaderCellDef> Intentos </th>
+        <td mat-cell *matCellDef="let element"> {{element.intentos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tiempo">
+        <th mat-header-cell *matHeaderCellDef> Tiempo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="win">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element; let i = index;">
+            <div *ngIf="i === 0">
+                <mat-icon class="center oro">star_border</mat-icon>
+                <mat-icon class="center oro">star_border</mat-icon>
+                <mat-icon class="center oro">star_border</mat-icon>
+                <img class="icon1"  src="/assets/imagenes/1.png" alt="">
+                <mat-icon class="center oro">star_border</mat-icon>
+                <mat-icon class="center oro">star_border</mat-icon>
+                <mat-icon class="center oro">star_border</mat-icon>
+            </div>
+            <div *ngIf="i === 1">
+                <mat-icon class="center plata">star_border</mat-icon>
+                <mat-icon class="center plata">star_border</mat-icon>
+                <img class="icon1"  src="/assets/imagenes/2.png" alt="">
+                <mat-icon class="center plata">star_border</mat-icon>
+                <mat-icon class="center plata">star_border</mat-icon>
+            </div>
+            <div *ngIf="i === 2">
+                <mat-icon class="center bronce">star_border</mat-icon>
+                <img class="icon1"  src="/assets/imagenes/3.png" alt="">
+                <mat-icon class="center bronce">star_border</mat-icon>
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

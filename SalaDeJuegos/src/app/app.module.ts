@@ -30,6 +30,12 @@ import { ChatModule } from './modules/chat/chat.module';
 import { AuthService } from "./services/auth.service";
 import { ResultsComponent } from './components/results/results.component';
 import { ColourPickerResultsComponent } from './components/results/colour-picker-results/colour-picker-results.component';
+import { MemoryResultsComponent } from './components/results/memory-results/memory-results.component';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { AngularEmojisModule } from 'angular-emojis';
+import { CloseDialogComponent } from './close-dialog/close-dialog.component';
+import { EncuestaButtonComponent } from './components/encuesta-button/encuesta-button.component';
+import { PptResultsComponent } from './components/results/ppt-results/ppt-results.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,12 @@ import { ColourPickerResultsComponent } from './components/results/colour-picker
     MatchingGameComponent,
     ColourPickerComponent,
     ResultsComponent,
-    ColourPickerResultsComponent
+    ColourPickerResultsComponent,
+    MemoryResultsComponent,
+    EncuestaComponent,
+    CloseDialogComponent,
+    EncuestaButtonComponent,
+    PptResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +74,8 @@ import { ColourPickerResultsComponent } from './components/results/colour-picker
     AngularMaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ChatModule
+    ChatModule,
+    AngularEmojisModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

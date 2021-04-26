@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { HomeComponent } from './components/home/home.component';
 import { ColourPickerComponent } from './components/juegos/colour-picker/colour-picker.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'email-verification', component: VerifyEmailComponent },
   { path: 'results', component: ResultsComponent },
+  { path: 'encuesta', component: EncuestaComponent },
   {
     path: 'juegos', canActivate: [AuthGuard],
     children: [

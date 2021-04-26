@@ -6,15 +6,20 @@
                 <div class="title">
                     <h2>Hola: {{user.email }}, A que te gustaria jugar?</h2>
                 </div>
-                <app-game-card [title]="titleTateti" [contentText]="contentTextTateti" [imgPath]="imgPathTateti"
-                    [redirectPath]="redirectPathTateti">
-                </app-game-card>
-                <app-game-card [title]="titlePpt" [contentText]="contentTextPpt" [imgPath]="imgPathPpt"
-                    [redirectPath]="redirectPathPpt"></app-game-card>
-                <app-game-card [title]="titleMemory" [contentText]="contentTextMemory" [imgPath]="imgPathMemory"
-                    [redirectPath]="redirectPathMemory"></app-game-card>
-                <app-game-card [title]="titleColourPicker" [contentText]="contentTextColourPicker" [imgPath]="imgPathColourPicker"
-                    [redirectPath]="redirectPathColourPicker"></app-game-card>
+                <div *ngIf="showEncuesta" class="encuestaContainer">
+                    <app-encuesta-button (closeButtonEncuesta)='handleShowButtonEncuesta()'></app-encuesta-button>
+                </div>
+                <div class="cardContainer">
+                    <app-game-card [title]="titleTateti" [contentText]="contentTextTateti" [imgPath]="imgPathTateti"
+                        [redirectPath]="redirectPathTateti">
+                    </app-game-card>
+                    <app-game-card [title]="titlePpt" [contentText]="contentTextPpt" [imgPath]="imgPathPpt"
+                        [redirectPath]="redirectPathPpt"></app-game-card>
+                    <app-game-card [title]="titleMemory" [contentText]="contentTextMemory" [imgPath]="imgPathMemory"
+                        [redirectPath]="redirectPathMemory"></app-game-card>
+                    <app-game-card [title]="titleColourPicker" [contentText]="contentTextColourPicker"
+                        [imgPath]="imgPathColourPicker" [redirectPath]="redirectPathColourPicker"></app-game-card>
+                </div>
             </div>
         </div>
     </div>

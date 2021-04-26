@@ -17,6 +17,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -38,7 +42,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatMenuModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule
 
   ],
   exports: [
@@ -58,7 +66,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatMenuModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule
   ]
 })
 export class AngularMaterialModule { }
