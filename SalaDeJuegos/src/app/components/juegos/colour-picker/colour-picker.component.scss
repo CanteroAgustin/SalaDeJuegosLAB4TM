@@ -11,7 +11,8 @@
     height: 200px;
     display: inline-block;
     margin: 2px;
-    border: 1px solid gainsboro;
+    border-color: gainsboro;
+    border-style: solid;
 }
 
 .colorsContainer {
@@ -46,13 +47,13 @@
     text-align: center;
     width: 200px;
     border: 2px solid black;
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 .textIntentos{
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .chat{

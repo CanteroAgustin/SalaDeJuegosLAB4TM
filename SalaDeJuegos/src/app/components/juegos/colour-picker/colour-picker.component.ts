@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'firebase';
 import { FirestoreMessageService } from 'src/app/services/firestore-message.service';
 import { ResultColourPicker } from './resultColourPicker';
@@ -26,7 +25,7 @@ export class ColourPickerComponent implements OnInit {
   segundos: number = 0;
   minutos: number = 0;
 
-  constructor(private _snackBar: MatSnackBar, private firestoreMsgService: FirestoreMessageService) { }
+  constructor(private firestoreMsgService: FirestoreMessageService) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') || "{}");
@@ -42,7 +41,6 @@ export class ColourPickerComponent implements OnInit {
     if (colour === this.principalColourText) {
       this.principalColour = this.principalColourText;
       this.hasWon = true;
-      this.openSnackBar('Felicidades!!! Lo lograste en ' + this.intentos + ' intentos.');
       this.saveResults(this.intentos);
     }
   }
@@ -91,12 +89,6 @@ export class ColourPickerComponent implements OnInit {
     this.segundos = 0;
     this.minutos = 0;
     this.play();
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'cerrar', {
-      duration: 2000,
-    });
   }
 
 }
