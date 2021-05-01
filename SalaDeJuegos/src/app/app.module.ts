@@ -13,8 +13,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { ColourPickerComponent } from './components/juegos/colour-picker/colour-picker.component';
-import { GameCardComponent } from './components/juegos/game-card/game-card.component';
-import { MatchingGameComponent } from './components/juegos/matching-game/matching-game.component';
+import { GameCardComponent } from './components/juegos/memory/game-card/game-card.component';
+import { MatchingGameComponent } from './components/juegos/memory/matching-game/matching-game.component';
 import { MemoryCardComponent } from './components/juegos/memory/memory-card/memory-card.component';
 import { MemoryComponent } from './components/juegos/memory/memory.component';
 import { RestartDialogComponent } from './components/juegos/memory/restart-dialog/restart-dialog.component';

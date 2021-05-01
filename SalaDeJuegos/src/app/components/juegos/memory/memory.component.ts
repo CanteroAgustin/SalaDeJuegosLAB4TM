@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MemoryCardData } from 'src/app/models/memory-card-data';
-import { RestartDialogComponent } from './restart-dialog/restart-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { FirestoreMessageService } from 'src/app/services/firestore-message.service';
 import { User } from 'firebase';
+import { MemoryCardData } from 'src/app/models/memory-card-data';
+import { FirestoreMessageService } from 'src/app/services/firestore-message.service';
+import { CardsService } from './cards.service';
 import { MemoryResult } from './memoryResult';
+import { RestartDialogComponent } from './restart-dialog/restart-dialog.component';
+
+interface CardDataService {
+  urls: {
+    small: string;
+  }
+}
 
 @Component({
   selector: 'app-memory',
@@ -42,7 +48,10 @@ export class MemoryComponent implements OnInit {
       .map(a => a[1]);
   }
 
-  constructor(private dialog: MatDialog, private firestore: AngularFirestore, private firestoreMsgService: FirestoreMessageService) {
+  constructor(
+    private dialog: MatDialog,
+    private firestoreMsgService: FirestoreMessageService,
+    private cardsService: CardsService) {
 
   }
 
@@ -52,19 +61,22 @@ export class MemoryComponent implements OnInit {
   }
 
   setupCards(): void {
-    this.cards = [];
-    this.cardImages.forEach((image) => {
-      const cardData: MemoryCardData = {
-        imageId: image,
-        state: 'default'
-      };
+    this.cardsService.getCards().subscribe(
+      response => {
+        this.cards = [];
+        response.forEach((image: CardDataService) => {
+          const cardData: MemoryCardData = {
+            imageId: image.urls.small,
+            state: 'default'
+          };
 
-      this.cards.push({ ...cardData });
-      this.cards.push({ ...cardData });
+          this.cards.push({ ...cardData });
+          this.cards.push({ ...cardData });
 
-    });
-
-    this.cards = this.shuffleArray(this.cards);
+        });
+        this.cards = this.shuffleArray(this.cards);
+      }
+    );
   }
 
   cardClicked(index: number): void {
